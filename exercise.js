@@ -8,8 +8,14 @@ if (!fs.existsSync(freelancerFile)) {
 
 let freelancer = fs.readFileSync(freelancerFile, 'utf8');
 
-freelancer = JSON.parse(freelancer);
+try {
+  freelancer = JSON.parse(freelancer);
+} catch (e) {
+  process.exit();
+}
 
 // compute all skills duration
 console.log(freelancer);
+
+
 // output result
