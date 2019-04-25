@@ -6,10 +6,30 @@
   "engines": {
     "node": "8.4.0"
   },
+  "scripts": {
+    "lint": "eslint .",
+    "watch": "nodemon exercise.js",
+    "start": "node exercise.js",
+    "posttest": "npm run lint",
+    "test": "mocha",
+    "commit": "git-cz"
+  },
   "author": "comet team",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hellocomet/backend-engineer-test/issues"
   },
-  "homepage": "https://github.com/hellocomet/backend-engineer-test"
+  "homepage": "https://github.com/hellocomet/backend-engineer-test",
+  "devDependencies": {
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.12.0",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.18.11"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
