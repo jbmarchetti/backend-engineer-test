@@ -1,0 +1,15 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "google"
+    ],
+    "env": {
+        "node": true,
+        "es6": true,
+        "mocha":true
+    },
+    "rules": {
+        "no-console": "off",
+        "max-len":[1,150]
+        }
+}

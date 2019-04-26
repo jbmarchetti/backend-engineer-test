@@ -1,0 +1,13 @@
+{
+  "freelance": {
+    "id": 42,
+    "user": {
+      "firstName": "Hunter",
+      "lastName": "Moore",
+      "jobTitle": "Fullstack JS Developer"
+    },
+    "status": "new",
+    "retribution": 650,
+    "availabilityDate": "2018-06-13T00:00:00+01:00"
+  }
+}
