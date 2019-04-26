@@ -1,6 +1,6 @@
 const moment = require('moment');
 /**
- *
+ * Service who Compute the total number of months the freelancer has worked for each skill
  *
  * @class FreelancerService
  */
@@ -15,7 +15,7 @@ class FreelancerService {
   }
 
   /**
-   * Return a freelancer with his "computed skills"
+   * Return a freelancer with his skills
    *
    * @return {JSON}
    * @memberof FreelanceService
@@ -33,7 +33,7 @@ class FreelancerService {
 
 
   /**
-   * Return an array of computed skills
+   * Compute the total number of months the freelancer has worked for each skill
    *
    * @return {Array}
    * @memberof FreelanceService
@@ -76,8 +76,8 @@ class FreelancerService {
 
 
   /**
-   * Compute the total of months by periods
-   * Check months intersections
+   * Return the sum of months by periods
+   * Check months overlapping
    *
    * @param {Array} periods
    * @return {Number}
