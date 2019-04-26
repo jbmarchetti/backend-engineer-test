@@ -41,9 +41,9 @@ class FreelancerService {
   getComputedSkills() {
     let skills = {};
 
-    if (this.freelance.professionalExperiences) {
+    if (this.freelance.professionalExperiences && Array.isArray(this.freelance.professionalExperiences)) {
       this.freelance.professionalExperiences.forEach((exp) => {
-        if (exp.skills) {
+        if (exp.skills && Array.isArray(exp.skills)) {
           exp.skills.forEach((skill) => {
             // Init Skill
             if (!skills[skill.id]) {
