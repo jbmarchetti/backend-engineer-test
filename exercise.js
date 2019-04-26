@@ -1,10 +1,11 @@
 const fs = require('fs');
 const FreelancerService = require('./src/freelancer/freelancer.service');
 
-const freelancerFile = './exercise/freelancer.json';
+const freelancerFile = './exercise/freelanfcer.json';
 
 if (!fs.existsSync(freelancerFile)) {
   console.log('File does not exists');
+  process.exit();
 }
 
 let freelancer = fs.readFileSync(freelancerFile, 'utf8');
