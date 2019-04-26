@@ -91,16 +91,16 @@ class FreelancerService {
     periods.forEach((p) => {
       if (endDateMax) {
         if (p.startDate > endDateMax) {
-          months += -p.startDate.diff(p.endDate, 'months', false);
+          months += p.endDate.diff(p.startDate, 'months', false);
         } else if (endDateMax < p.endDate) {
-          months += -endDateMax.diff(p.endDate, 'months', false);
+          months += p.endDate.diff(endDateMax, 'months', false);
         }
 
         if (p.endDate.diff(endDateMax) >0) {
           endDateMax = p.endDate;
         }
       } else {
-        months += -p.startDate.diff(p.endDate, 'months', false);
+        months += p.endDate.diff(p.startDate, 'months', false);
         endDateMax = p.endDate;
       }
     });
