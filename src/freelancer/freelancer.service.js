@@ -86,20 +86,23 @@ class FreelancerService {
   computeSkill(periods) {
     let months = 0;
     periods.sort((p1, p2) => p1.startDate.diff(p2.startDate));
-    let lastPeriod = null;
+    let endDateMax = null;
 
     periods.forEach((p) => {
-      if (lastPeriod) {
-        if (p.startDate > lastPeriod.endDate) {
+      if (endDateMax) {
+        if (p.startDate > endDateMax) {
           months += -p.startDate.diff(p.endDate, 'months', false);
-        } else if ( lastPeriod.endDate < p.endDate) {
-          months += -lastPeriod.endDate.diff(p.endDate, 'months', false);
+        } else if (endDateMax < p.endDate) {
+          months += -endDateMax.diff(p.endDate, 'months', false);
+        }
+
+        if (p.endDate.diff(endDateMax) >0) {
+          endDateMax = p.endDate;
         }
       } else {
         months += -p.startDate.diff(p.endDate, 'months', false);
+        endDateMax = p.endDate;
       }
-
-      lastPeriod = p;
     });
 
     return months;
