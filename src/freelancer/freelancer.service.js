@@ -20,11 +20,11 @@ class FreelancerService {
    * @return {JSON}
    * @memberof FreelanceService
    */
-  getFreeLancerWithComputedSkills() {
+  getFreeLancerWithMonthsSkillExperiences() {
     const result = {
       'freelance': {
         'id': this.freelance.id,
-        'computedSkills': this.getComputedSkills(),
+        'computedSkills': this.getMonthsSkillExperiences(),
       },
     };
 
@@ -38,7 +38,7 @@ class FreelancerService {
    * @return {Array}
    * @memberof FreelanceService
    */
-  getComputedSkills() {
+  getMonthsSkillExperiences() {
     let skills = {};
 
     if (this.freelance.professionalExperiences && Array.isArray(this.freelance.professionalExperiences)) {
@@ -68,7 +68,7 @@ class FreelancerService {
 
     skills.map((skill) => {
       skill.durationInMonths = FreelancerService.durationInMonthsByPeriods(skill.periods);
-      delete(skill.periods);
+      delete (skill.periods);
     });
 
     return skills;
@@ -96,7 +96,7 @@ class FreelancerService {
           months += p.endDate.diff(endDateMax, 'months', false);
         }
 
-        if (p.endDate.diff(endDateMax) >0) {
+        if (p.endDate.diff(endDateMax) > 0) {
           endDateMax = p.endDate;
         }
       } else {

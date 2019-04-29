@@ -12,7 +12,7 @@ const periods = require('../../test/datasets/periods/periods.js');
  * @param {boolean} [emptySkills=false]
  */
 function checkJsonFreelancer(fJson, emptySkills=false) {
-  const freelancer = new FreelancerService(fJson).getFreeLancerWithComputedSkills();
+  const freelancer = new FreelancerService(fJson).getFreeLancerWithMonthsSkillExperiences();
   expect(freelancer).to.be.an('object');
   expect(freelancer).to.have.property('freelance');
   expect(freelancer.freelance).to.have.property('id');
@@ -48,7 +48,7 @@ describe('Freelance Service', () => {
 
   describe('Get Computed Skills', () => {
     it('should return an array of skills with their monthly durations', () => {
-      const skills = new FreelancerService(this.fullFreelancerJson).getComputedSkills();
+      const skills = new FreelancerService(this.fullFreelancerJson).getMonthsSkillExperiences();
       expect(skills).to.be.an('array');
       skills.forEach((skill) => {
         expect(skill).to.have.property('id');
@@ -59,7 +59,7 @@ describe('Freelance Service', () => {
     });
 
     it('should return an empty array', () => {
-      const skills = new FreelancerService(this.emptyFreelancerJson).getComputedSkills();
+      const skills = new FreelancerService(this.emptyFreelancerJson).getMonthsSkillExperiences();
       expect(skills).to.be.empty;
     });
   });
