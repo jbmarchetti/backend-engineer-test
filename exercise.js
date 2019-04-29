@@ -19,7 +19,7 @@ try {
 
 const freelancerService = new FreelancerService(freelancer);
 // compute all skills duration
-const freelancerWithComputedSkills = freelancerService.getFreeLancerWithComputedSkills();
+const freelancerWithComputedSkills = freelancerService.getFreeLancerWithMonthsSkillExperiences();
 // output result
 console.log(JSON.stringify(freelancerWithComputedSkills, null, '\t'));
 
