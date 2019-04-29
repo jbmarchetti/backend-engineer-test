@@ -55,10 +55,16 @@ class FreelancerService {
               };
             }
 
-            skills[skill.id].periods.push({
-              startDate: moment(exp.startDate),
-              endDate: moment(exp.endDate),
-            });
+            if (exp.startDate && exp.endDate) {
+              const startDate = moment(exp.startDate, moment.ISO_8601);
+              const endDate = moment(exp.endDate, moment.ISO_8601);
+              if (startDate.isValid() && endDate.isValid()) {
+                skills[skill.id].periods.push({
+                  startDate: startDate,
+                  endDate: endDate,
+                });
+              }
+            }
           });
         }
       });

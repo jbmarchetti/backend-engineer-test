@@ -29,11 +29,15 @@ describe('Freelance Service', () => {
     this.fullFreelancerJson = fs.readFileSync('test/datasets/freelancers/full-freelancer.json', 'utf8');
     this.noExpFreelancerJson = fs.readFileSync('test/datasets/freelancers/no-exp-freelancer.json', 'utf8');
     this.noSkillsFreelancerJson = fs.readFileSync('test/datasets/freelancers/no-skills-freelancer.json', 'utf8');
+    this.fullFreelancerInvalidStartDateJson = fs.readFileSync('test/datasets/freelancers/full-freelancer-invalid-start-date.json', 'utf8');
+    this.fullFreelancerInvalidEndDateJson = fs.readFileSync('test/datasets/freelancers/full-freelancer-invalid-end-date.json', 'utf8');
 
     this.emptyFreelancerJson = JSON.parse(this.emptyFreelancerJson);
     this.fullFreelancerJson = JSON.parse(this.fullFreelancerJson);
     this.noExpFreelancerJson = JSON.parse(this.noExpFreelancerJson);
     this.noSkillsFreelancerJson = JSON.parse(this.noSkillsFreelancerJson);
+    this.fullFreelancerInvalidStartDateJson = JSON.parse(this.fullFreelancerInvalidStartDateJson);
+    this.fullFreelancerInvalidEndDateJson = JSON.parse(this.fullFreelancerInvalidEndDateJson);
   });
 
 
@@ -79,6 +83,14 @@ describe('Freelance Service', () => {
 
     it('should return freelancer with an empty skills array when no skills', () => {
       checkJsonFreelancer(this.noSkillsFreelancerJson, true);
+    });
+
+    it('should return freelancer with his skills when there is an invalid startDate Value', () => {
+      checkJsonFreelancer(this.fullFreelancerInvalidStartDateJson);
+    });
+
+    it('should return freelancer with his skills when there is an invalid endDate Value', () => {
+      checkJsonFreelancer(this.fullFreelancerInvalidEndDateJson);
     });
   });
 });
