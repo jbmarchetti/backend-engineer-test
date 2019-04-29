@@ -67,7 +67,7 @@ class FreelancerService {
     skills = Object.values(skills);
 
     skills.map((skill) => {
-      skill.durationInMonths = this.computeSkill(skill.periods);
+      skill.durationInMonths = FreelancerService.durationInMonthsByPeriods(skill.periods);
       delete(skill.periods);
     });
 
@@ -83,7 +83,7 @@ class FreelancerService {
    * @return {Number}
    * @memberof FreelanceService
    */
-  computeSkill(periods) {
+  static durationInMonthsByPeriods(periods) {
     let months = 0;
     periods.sort((p1, p2) => p1.startDate.diff(p2.startDate));
     let endDateMax = null;

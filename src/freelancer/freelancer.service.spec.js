@@ -40,7 +40,7 @@ describe('Freelance Service', () => {
   describe('Compute Skill - Sum of months by periods', () => {
     periods.datas.forEach((p) => {
       it('should return '+p.result, () => {
-        const months = new FreelancerService({}).computeSkill(p.periods);
+        const months = FreelancerService.durationInMonthsByPeriods(p.periods);
         expect(months).to.equal(p.result);
       });
     });
